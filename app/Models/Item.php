@@ -11,6 +11,6 @@ class Item extends Model
     use HasFactory;
     public function author()
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class, 'owner_id');
     }
 }

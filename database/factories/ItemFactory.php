@@ -17,7 +17,11 @@ class ItemFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->sentence(),
+            'owner_id' => fake()->numberBetween(1, 10),
+            'description' => fake()->text(500),
+            'category' => fake()->randomElement(['Tools', 'Bikes', 'Kitchen', 'Garden', 'Electronics', 'Sports']),
+            'address' => fake()->address,
         ];
     }
 }
