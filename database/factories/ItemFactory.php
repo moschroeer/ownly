@@ -16,12 +16,54 @@ class ItemFactory extends Factory
      */
     public function definition(): array
     {
+        $titles = [
+            'Tools' => [
+                'Pro Steel Hammer',
+                'Cordless Drill 18V',
+                'Precision Screwdriver Set',
+                'Cordless jigsaw',
+            ],
+            'Bikes' => [
+                'City Commuter 700C',
+                'Trail Mountain Bike 29"',
+                'Folding Bike 20"',
+                'Kids Balance Bike',
+            ],
+            'Kitchen' => [
+                'Air Fryer Philips',
+                'Thermomix 2000"',
+                'Electric Kettle 1.7L',
+                'Bamboo Cutting Board',
+            ],
+            'Garden' => [
+                'Pruning Shears',
+                'Expandable Hose 50ft',
+                'Hand Trowel',
+                'Lawn Mower',
+            ],
+            'Electronics' => [
+                'Wireless Headphones',
+                '4K Action Camera',
+                'USB‑C Charger 65W',
+                'Portable SSD 1TB',
+            ],
+            'Sports' => [
+                'Yoga Mat',
+                '24kg Dumbbells',
+                'Soccer Ball',
+                'Speed Jump Rope',
+            ],
+        ];
+
+        // Pick category first so title can match it
+        $category = fake()->randomElement(array_keys($titles));
+
         return [
-            'title' => fake()->sentence(),
-            'owner_id' => fake()->numberBetween(1, 10),
-            'description' => fake()->text(500),
-            'category' => fake()->randomElement(['Tools', 'Bikes', 'Kitchen', 'Garden', 'Electronics', 'Sports']),
-            'address' => fake()->address,
+            'title'      => fake()->randomElement($titles[$category]),
+            'owner_id'   => fake()->numberBetween(1, 10),
+            'description'=> fake()->text(500),
+            'category'   => $category,
+            'address'    => fake()->address(),
         ];
     }
 }
