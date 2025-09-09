@@ -9,8 +9,13 @@ class Item extends Model
 {
     /** @use HasFactory<\Database\Factories\ItemFactory> */
     use HasFactory;
-    public function author()
+    public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function reservation()
+    {
+        return $this->hasMany(Item::class, 'item_id');
     }
 }

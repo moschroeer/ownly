@@ -17,4 +17,13 @@ class ItemController extends Controller
         // return response
         return view('item.index', compact('items'));
     }
+    public function show($id)
+    {
+        // fetch the one article that is requested
+        $items = \App\Models\Item::find($id);
+
+        // send article to its view
+        // return response
+        return view('item.show', compact('items'));
+    }
 }
