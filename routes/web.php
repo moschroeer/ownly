@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('items', [\App\Http\Controllers\ItemController::class, 'index'] );
 Route::get('items/{id}', [\App\Http\Controllers\ItemController::class, 'show'] );
 
+Route::get('reservations', [\App\Http\Controllers\ReservationController::class, 'index'] );
+Route::get('reservations/{id}', [\App\Http\Controllers\ReservationController::class, 'show'] );
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');

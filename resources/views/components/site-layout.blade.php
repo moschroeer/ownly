@@ -20,8 +20,8 @@
         <!-- Desktop nav links -->
         <div class="hidden lg:flex lg:gap-x-12">
             <a href="/items" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Items</a>
-            <a href="/reservation" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Reservation</a>
-            <a href="/user" class="text-sm/6 font-semibold text-gray-900 dark:text-white">User</a>
+            <a href="/reservations" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Reservations</a>
+            <a href="/users" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Users</a>
         </div>
 
         <!-- login -->

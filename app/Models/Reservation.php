@@ -19,4 +19,8 @@ class Reservation extends Model
     {
         return $this->belongsTo(Item::class, 'item_id');
     }
+    protected $casts = [
+        'start_use' => 'datetime',
+        'end_use'   => 'datetime',
+    ];
 }
