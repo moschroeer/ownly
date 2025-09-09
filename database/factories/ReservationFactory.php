@@ -16,8 +16,15 @@ class ReservationFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        $start = fake()->dateTimeBetween('now', '+7 days');
+
+        return
+            [
+            'status'=> fake()->randomElement(['available', 'in_use']),
+            'start_use'=> $start,
+            'end_use'=> (clone $start)->modify('+'.fake()->numberBetween(1, 8).' hours'),
+            'borrower_id'=>fake()->numberBetween(1, 10),
+            'item_id'=>fake()->numberBetween(1, 10),
         ];
     }
 }
