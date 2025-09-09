@@ -46,6 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'owner_id');
+    }
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'borrower_id');
+    }
 
     /**
      * Get the user's initials
