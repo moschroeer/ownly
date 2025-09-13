@@ -26,4 +26,9 @@ class ItemController extends Controller
         // return response
         return view('item.show', compact('items'));
     }
+    public function create()
+    {
+        return view ('item.create');
+    }
+
 }
