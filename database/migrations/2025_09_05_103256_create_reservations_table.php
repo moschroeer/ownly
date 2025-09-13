@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['available', 'borrowed'])->default('available');
+            $table->enum('status', ['pending', 'approved', 'lended','returned','cancelled'])->default('pending');
             $table->timestamp('start_use')->nullable();
             $table->timestamp('end_use')->nullable();
             $table->foreignId('borrower_id');

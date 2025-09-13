@@ -20,7 +20,7 @@ class ReservationFactory extends Factory
 
         return
             [
-            'status'=> fake()->randomElement(['available', 'borrowed']),
+            'status'=> fake()->randomElement(['pending', 'approved', 'lended','returned','cancelled']),
             'start_use'=> $start,
             'end_use'=> (clone $start)->modify('+'.fake()->numberBetween(1, 8).' hours'),
             'borrower_id'=>fake()->numberBetween(1, 10),
