@@ -41,5 +41,25 @@ class ItemController extends Controller
 
         return redirect() -> route('items.show', $items->id);
     }
+public function edit($id)
+    {
+    $items= \App\Models\Item::find($id);
+    return view('item.edit', compact('items'));
+    }
+    public function update(Request $request, $id)
+    {
+        $items = \App\Models\Item::find($id);
+        $items -> update([
+            'title'=> $request -> title,
+            'description'=>$request-> description,
+        ]);
+        return redirect() -> route('items.show', $items->id);
+    }
 
+    public function destroy($id)
+    {
+        $items = \App\Models\Item::find($id);
+        $items -> delete();
+        return redirect() -> route('items.index');
+    }
 }
