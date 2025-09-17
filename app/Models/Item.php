@@ -16,7 +16,7 @@ class Item extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
-    public function rental()
+    public function rentals()
     {
         return $this->hasMany(Item::class, 'item_id');
     }
