@@ -1,7 +1,14 @@
 <x-site-layout>
-
-    <h1 class="text-4xl font-bold">Items overview</h1>
-
+    <section class="flex items-center justify-between">
+    <div>
+        <h1 class="text-4xl font-bold">Items overview</h1>
+    </div>
+    <div>
+        <a href="items/create" class="inline-block rounded-md px-8 py-2 border-blue-500 hover:border-blue-700 bg-blue-500 hover:bg-blue-700 text-white">
+            Add item
+        </a>
+    </div>
+    </section>
     <div class="mx-auto max-w-7xl py-6">
         <div class="hidden md:grid md:grid-cols-4 md:gap-6">
     @foreach($items as $item)

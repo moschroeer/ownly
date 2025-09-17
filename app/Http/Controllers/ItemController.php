@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -29,6 +30,16 @@ class ItemController extends Controller
     public function create()
     {
         return view ('item.create');
+    }
+    public function store(Request $request)
+    {
+        $items = \App\Models\Item::create([
+            'title'=> $request-> title,
+            'description'=> $request->description,
+            'owner_id'=> 1,
+        ]);
+
+        return redirect() -> route('items.show', $items->id);
     }
 
 }
