@@ -1,23 +1,24 @@
 <x-site-layout>
-
+<div class="mx-auto w-3/5 py-6 rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 p-6 my-6">
+    <h1 class="text-4xl font-bold"> Edit Your Item</h1>
     <form action="/items/{{$items->id}}" method="post">
 
         @method('PUT')
         @csrf
 
-        <div>
-            <label for="title">Title</label><br/>
-            <input type="text" name="title" class="bg-gray-200 p-2" value="{{$items->title}}">
+        <div class="max-w-md my-4">
+            <label for="title">Title:</label><br/>
+            <input type="text" name="title" class="bg-gray-200 p-2 rounded-md w-full mt-1" value="{{$items->title}}">
         </div>
 
-        <div>
-            <label for="description">Description</label><br/>
-            <textarea name="description" class="bg-gray-200 p-2 w-1/2">{{$items->description}}</textarea>
+        <div class="max-w-md my-4">
+            <label for="description">Description:</label><br/>
+            <textarea name="description" class="bg-gray-200 p-2 rounded-md w-full min-h-40 mt-1">{{$items->description}}</textarea>
         </div>
 
-        <br/><br/>
-        <button class="bg-blue-500 p-1 uppercase" type="submit">Update</button>
+        <button class="inline-flex rounded-md px-4 py-2 border-2 border-blue-500 hover:border-blue-700 bg-blue-500 hover:bg-blue-700 text-white" type="submit">Update</button>
     </form>
+</div>
 
 
 </x-site-layout>
