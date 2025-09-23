@@ -47,8 +47,14 @@ public function edit($id)
     return view('item.edit', compact('items'));
     }
     public function update(Request $request, $id)
-    {
+    {   //load correct article from model
         $items = \App\Models\Item::find($id);
+        //validate the incoming request data
+        $request->validate([
+            'title' => ['required','string','max:100','min:10'],
+            'description' => ['required','string'],
+        ]);
+        //Update the changes
         $items -> update([
             'title'=> $request -> title,
             'description'=>$request-> description,
