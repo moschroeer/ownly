@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
 <header class="bg-white dark:bg-blue-500">
     <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <!--Logo -->
-        <div class="flex lg:flex-1">
+        <div class="inline-flex">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
                 <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" class="h-8 w-auto dark:hidden" />
@@ -18,18 +19,40 @@
         </div>
 
         <!-- Desktop nav links -->
-        <div class="hidden lg:flex lg:gap-x-12">
+        <div class="flex justify-center gap-12">
             <a href="/items" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Items</a>
             <a href="/reservations" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Reservations</a>
             <a href="/users" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Users</a>
         </div>
 
         <!-- login -->
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/login" class="text-sm/6 font-semibold text-gray-900 dark:text-white">
-                Log in <span aria-hidden="true">&rarr;</span>
-            </a>
-        </div>
+        @if (Route::has('login'))
+            <nav class="ml-4 flex items-center gap-4">
+                @auth
+                    <a
+                        href="{{ url('/dashboard') }}"
+                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                    >
+                        Dashboard
+                    </a>
+                @else
+                    <a
+                        href="{{ route('login') }}"
+                        class="inline-block rounded-md px-4 py-1.5 border-2 border-white hover:border-blue-700 bg-white hover:bg-blue-700 text-blue-500 hover:text-white"
+                    >
+                        Log in
+                    </a>
+
+                    @if (Route::has('register'))
+                        <a
+                            href="{{ route('register') }}"
+                            class="inline-block rounded-md px-4 py-1.5 border-2 border-white hover:border-blue-700 bg-blue-500 hover:bg-blue-700 text-white">
+                            Register
+                        </a>
+                    @endif
+                @endauth
+            </nav>
+        @endif
     </nav>
 </header>
 <main class="max-w-6xl mx-auto px-4 py-4">
