@@ -1,5 +1,5 @@
 <x-site-layout>
-    <div class="mx-auto w-3/5 py-6 rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 p-6 my-6">
+    <div class="mx-auto w-3/5 py-6 rounded-2xl bg-white shadow-lg ring-2 ring-white p-6 my-6">
     <section class="flex items-center justify-between gap-4">
         <div>
             <h1 class="text-4xl font-bold">{{$items->title}}</h1>

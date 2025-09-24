@@ -36,7 +36,7 @@ class ItemController extends Controller
         $items = \App\Models\Item::create([
             'title'=> $request-> title,
             'description'=> $request->description,
-            'owner_id'=> 1,
+            'owner_id'=> auth()->user()->id,
         ]);
 
         return redirect() -> route('items.show', $items->id);

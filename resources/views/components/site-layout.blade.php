@@ -7,7 +7,7 @@
     <title>Item overview</title>
 </head>
 <body>
-<header class="bg-white dark:bg-blue-500">
+<header class="sticky top-0 left-0 right-0 h-30 z-50 bg-white dark:bg-blue-500">
     <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <!--Logo -->
         <div class="inline-flex">
@@ -29,12 +29,14 @@
         @if (Route::has('login'))
             <nav class="ml-4 flex items-center gap-4">
                 @auth
-                    <a
-                        href="{{ url('/dashboard') }}"
-                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                    >
-                        Dashboard
-                    </a>
+                    <div class="text-white">Hi, {{ auth()->user()->name}} </div>
+                    <div>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button class="inline-block rounded-md px-4 py-1.5 border-2 border-white hover:border-blue-700 bg-blue-500 hover:bg-blue-700 text-white" type="submit">Logout</button>
+
+                        </form>
+                    </div>
                 @else
                     <a
                         href="{{ route('login') }}"
@@ -55,10 +57,10 @@
         @endif
     </nav>
 </header>
-<main class="max-w-6xl mx-auto px-4 py-4">
-
+<main class="bg-gradient-to-t from-slate-100 to-slate-50">
+<div class="max-w-6xl mx-auto px-4 py-8">
     {{$slot}}
-
+</div>
 </main>
 <footer class="bg-slate-900">
     <div class="mx-auto max-w-7xl px-6 py-12 text-center">
