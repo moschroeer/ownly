@@ -13,16 +13,15 @@
         <div class="inline-flex">
             <a href="/" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
-                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" class="h-8 w-auto dark:hidden" />
-                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="hidden h-8 w-auto dark:block" />
+                <img src="{{ asset('logo_ownly2.svg') }}" alt="" class="h-12 w-auto" />
             </a>
         </div>
 
         <!-- Desktop nav links -->
         <div class="flex justify-center gap-12">
-            <a href="/items" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Items</a>
-            <a href="/reservations" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Reservations</a>
-            <a href="/users" class="text-sm/6 font-semibold text-gray-900 dark:text-white">Users</a>
+            <a href="/items" class="text-md/6 font-semibold text-gray-900 dark:text-white">Items</a>
+            <a href="/reservations" class="text-md/6 font-semibold text-gray-900 dark:text-white">Reservations</a>
+            <a href="/users" class="text-md/6 font-semibold text-gray-900 dark:text-white">Users</a>
         </div>
 
         <!-- login -->
