@@ -32,7 +32,10 @@ class ItemController extends Controller
         return view ('item.create');
     }
     public function store(Request $request)
-    {
+    {   $request->validate([
+        'title' => ['required','string','max:100','min:10'],
+        'description' => ['required','string'],
+    ]);
         $items = \App\Models\Item::create([
             'title'=> $request-> title,
             'description'=> $request->description,
@@ -44,11 +47,15 @@ class ItemController extends Controller
 public function edit($id)
     {
     $items= \App\Models\Item::find($id);
+    if (! $items  -> canEditOrDelete(auth()->user())) {
+        return redirect() -> route('items.show', ['id'=>$items->id]);
+    }
     return view('item.edit', compact('items'));
     }
     public function update(Request $request, $id)
     {   //load correct article from model
         $items = \App\Models\Item::find($id);
+
         //validate the incoming request data
         $request->validate([
             'title' => ['required','string','max:100','min:10'],
@@ -65,7 +72,11 @@ public function edit($id)
     public function destroy($id)
     {
         $items = \App\Models\Item::find($id);
+        if (! $items -> canEditOrDelete(auth()->user())) {
+            return redirect() -> route('items.show', ['id'=>$items->id]);
+        }
         $items -> delete();
         return redirect() -> route('items.index');
     }
-}
+
+    }

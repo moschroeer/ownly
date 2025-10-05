@@ -5,6 +5,9 @@
             <h1 class="text-4xl font-bold">{{$items->title}}</h1>
         </div>
 
+        @auth
+            @if($items->canEditOrDelete(auth()->user()))
+
         <div class="flex flex-nowrap items-center gap-3">
             <a href="{{$items->id}}/edit" class="inline-flex rounded-md px-4 py-2 border-2 border-blue-500 hover:border-blue-700 bg-blue-500 hover:bg-blue-700 text-white">
                 Edit
@@ -18,6 +21,8 @@
             </button>
         </form>
         </div>
+            @endif
+        @endauth
     </section>
 
 

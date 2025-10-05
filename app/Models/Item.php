@@ -20,4 +20,14 @@ class Item extends Model
     {
         return $this->hasMany(Item::class, 'item_id');
     }
+    public function canEditOrDelete(User $user)
+    {
+        if ($user->isAdmin()){
+            return true;
+        }
+        if($this -> owner_id !== $user->id){
+            return false;
+        }
+        return true;
+    }
 }
