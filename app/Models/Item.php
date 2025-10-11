@@ -18,7 +18,7 @@ class Item extends Model
 
     public function rentals()
     {
-        return $this->hasMany(Item::class, 'item_id');
+        return $this->hasMany(Reservation::class, 'item_id');
     }
     public function canEditOrDelete(User $user)
     {

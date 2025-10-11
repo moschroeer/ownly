@@ -11,7 +11,7 @@ class WelcomeController extends Controller
     public function index(){
 
         $items=\App\Models\Item::latest()->take(4)->get();
-        $users=\App\Models\User::latest()->take(4)->get();
-        return view('welcome', compact('items'), compact('users'));
+        $users=\App\Models\User::latest()->take(5)->get();
+        return view('welcome', compact('items', 'users'));
     }
 }
