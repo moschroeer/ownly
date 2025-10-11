@@ -31,7 +31,7 @@ class ItemFactory extends Factory
             ],
             'Kitchen' => [
                 'Air Fryer Philips',
-                'Thermomix 2000"',
+                'Thermomix 2000',
                 'Electric Kettle 1.7L',
                 'Bamboo Cutting Board',
             ],
@@ -63,7 +63,7 @@ class ItemFactory extends Factory
             'owner_id'   => fake()->numberBetween(1, 10),
             'description'=> fake()->text(500),
             'category'   => $category,
-            'address'    => fake()->address(),
+            'address'    => fake('de_DE')->city,
         ];
     }
 }
