@@ -8,8 +8,8 @@
           'cancelled' => 'bg-rose-100 text-rose-800 ring-rose-200',
         ];
     @endphp
-    <h1 class="text-4xl font-bold">Reservation overview</h1>
-    <div class="mx-auto max-w-7xl py-6">
+    <div class="mx-auto max-w-6xl py-6">
+        <h1 class="text-4xl font-bold mb-6">Reservation Overview</h1>
         <div class=" md:grid md:gap-6">
         @foreach($reservations as $reservation)
                 @php

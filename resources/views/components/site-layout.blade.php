@@ -7,7 +7,7 @@
     <title>Item overview</title>
 </head>
 <body>
-<header class="sticky top-0 left-0 right-0 h-30 z-50 bg-white dark:bg-blue-500">
+<header class="sticky top-0 left-0 right-0 h-30 z-50 bg-blue-500">
     <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <!--Logo -->
         <div class="inline-flex">
@@ -19,9 +19,9 @@
 
         <!-- Desktop nav links -->
         <div class="flex justify-center gap-12">
-            <a href="/items" class="text-md/6 font-semibold text-gray-900 dark:text-white">Items</a>
-            <a href="/reservations" class="text-md/6 font-semibold text-gray-900 dark:text-white">Reservations</a>
-            <a href="/users" class="text-md/6 font-semibold text-gray-900 dark:text-white">Users</a>
+            <a href="/items" class="text-md/6 font-semibold text-white">Items</a>
+            <a href="/reservations" class="text-md/6 font-semibold text-white">Reservations</a>
+            <a href="/users" class="text-md/6 font-semibold text-white">Users</a>
         </div>
 
         <!-- login -->
@@ -56,10 +56,8 @@
         @endif
     </nav>
 </header>
-<main class="bg-gradient-to-t from-slate-100 to-slate-50">
-<div class="max-w-6xl mx-auto px-4 py-8">
+<main class="bg-gradient-to-t from-slate-100 to-slate-50 py-8">
     {{$slot}}
-</div>
 </main>
 <footer class="bg-slate-900">
     <div class="mx-auto max-w-7xl px-6 py-12 text-center">

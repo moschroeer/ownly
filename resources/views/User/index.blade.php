@@ -1,7 +1,8 @@
 <x-site-layout>
 
-    <h1 class="text-4xl font-bold">Users</h1>
-    <div class="mx-auto max-w-7xl py-6">
+
+    <div class="mx-auto max-w-6xl py-6">
+        <h1 class="text-4xl font-bold mb-6">User Overview</h1>
         <div class="place-self-start hidden md:grid md:grid-cols-4 md:gap-6">
             @foreach($users as $user)
                 <div class="rounded-2xl bg-white shadow-lg ring-2 ring-white p-6 w-56">
